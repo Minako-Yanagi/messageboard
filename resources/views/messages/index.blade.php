@@ -4,7 +4,7 @@
 
     <h1>メッセージ一覧</h1>
 
-    @if (count($tasklists) > 0)
+    @if (count($messages) > 0)
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -14,16 +14,16 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($tasklists as $tasklist)
+                @foreach ($messages as $message)
                     <tr>
-                        <td>{!! link_to_route('tasklists.show', $tasklist->id, ['id' => $tasklist->id]) !!}</td>
-                        <td>{{ $tasklist->title }}</td>
-                        <td>{{ $tasklist->content }}</td>
+                        <td>{!! link_to_route('messages.show', $message->id, ['id' => $message->id]) !!}</td>
+                        <td>{{ $message->title }}</td>
+                        <td>{{ $message->content }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     @endif
-    {!! link_to_route('tasklists.create', '新規メッセージの投稿', null, ['class' => 'btn btn-primary']) !!}
+    {!! link_to_route('messages.create', '新規メッセージの投稿', null, ['class' => 'btn btn-primary']) !!}
 
 @endsection
